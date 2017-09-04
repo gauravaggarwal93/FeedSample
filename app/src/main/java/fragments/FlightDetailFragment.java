@@ -21,6 +21,8 @@ import dto.Fare;
 
 /**
  * Created by Gaurav on 9/2/17.
+ *
+ * This fragment is used for showing flight detail view by showing fare prices from different providers.
  */
 
 public class FlightDetailFragment extends BaseFragment {

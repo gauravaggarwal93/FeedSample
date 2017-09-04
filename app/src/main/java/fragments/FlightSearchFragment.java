@@ -19,8 +19,6 @@ import com.example.guest.myapplication.R;
 
 import org.json.JSONObject;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -28,7 +26,6 @@ import constants.ApiConstants;
 import dto.Appendix;
 import dto.Flight;
 import utils.ApiUtils;
-import utils.TimeUtils;
 import utils.Utils;
 
 /**
@@ -38,8 +35,6 @@ import utils.Utils;
 public class FlightSearchFragment extends BaseFragment {
 
     private static final String LOG_TAG = "FlightSearchFragment";
-
-    public static final String ARG_SEARCH = "ARG_SEARCH";
 
     private RecyclerView mRecyclerView;
 
@@ -55,6 +50,8 @@ public class FlightSearchFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFlightList = new ArrayList<>();
+
+//        Handling Orientation changes. This also avoids memory leaks due to asynctask
         setRetainInstance(true);
     }
 
@@ -83,8 +80,11 @@ public class FlightSearchFragment extends BaseFragment {
         return FlightSearchFragment.class.getName();
     }
 
-
-    private void startSearching(String quey) {
+    /**
+     *
+     * @param query - Flight query(Not using it right now)
+     */
+    private void startSearching(String query) {
         if (loading) {
             Log.d(LOG_TAG, "Already loading..");
             return;
