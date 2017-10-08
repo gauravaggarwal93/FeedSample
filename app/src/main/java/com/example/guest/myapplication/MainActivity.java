@@ -10,7 +10,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import fragments.BaseFragment;
-import fragments.FlightSearchFragment;
+import fragments.FeedListFragment;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MAIN_ACTIVITY";
@@ -21,19 +21,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startFlightSearchFragment();
+        startFeedListFragment();
     }
 
-    private void startFlightSearchFragment() {
-        FlightSearchFragment flightSearchFragment = new FlightSearchFragment();
-        startFragmentTransition(flightSearchFragment);
+    private void startFeedListFragment() {
+        FeedListFragment feedListFragment = new FeedListFragment();
+        startFragmentTransition(feedListFragment);
     }
 
     public void startFragmentTransition(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         if(fragmentManager.findFragmentByTag(((BaseFragment) fragment).getFragmentTag()) == null){
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, fragment, ((BaseFragment) fragment).getFragmentTag());
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.addToBackStack(((BaseFragment) fragment).getFragmentTag());
             fragmentTransaction.commit();
         }else {

@@ -8,9 +8,10 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
 import application.MyApplicationClass;
+import utils.ImageHelper;
 
 /**
- * Created by Gaurav on 9/2/17.
+ * Created by Gaurav on 10/7/17.
  */
 
 public class VolleyManager {
@@ -39,7 +40,9 @@ public class VolleyManager {
 
                     @Override
                     public Bitmap getBitmap(String url) {
-                        return cache.get(url);
+                        Bitmap bitmap = cache.get(url);
+//                        bitmap = ImageHelper.getRoundedCornerBitmap(bitmap, 12);
+                        return bitmap;
                     }
 
                     @Override

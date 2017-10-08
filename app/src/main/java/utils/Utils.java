@@ -15,16 +15,10 @@ import java.util.Date;
 import java.util.TimeZone;
 
 /**
- * Created by Gaurav on 9/2/17.
+ * Created by Gaurav on 10/7/17.
  */
 
 public class Utils {
-
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
 
     public static void runOnThread(Runnable runnable){
         Thread thread = new Thread(runnable);
@@ -42,8 +36,8 @@ public class Utils {
         return array == null || array.length() == 0;
     }
 
-    public static Date getDate(long time) {
-        return new Date(time);
+    public static Date getDate(long timestamp) {
+        return new Date(timestamp * 1000L);
     }
 
 }

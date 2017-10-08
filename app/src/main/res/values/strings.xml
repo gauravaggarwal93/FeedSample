@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Shuttl Feed</string>
     <string name="search_hint">Search in your locality</string>
     <string name="Rs">\u20B9</string>
+    <string name="people">People</string>
+    <string name="like">LIKE</string>
+    <string name="unlike">UNLIKE</string>
+    <string name="Place">Place</string>
+    <string name="Quote">Quote</string>
+    <string name="Description">Description</string>
 </resources>
